@@ -1,0 +1,183 @@
+:root {
+    --gap: 40px;
+}
+
+@font-face {
+    font-family: 'Joystix Monospace';
+    src: url('JoystixMonospace-Regular.woff2') format('woff2'),
+        url('JoystixMonospace-Regular.woff') format('woff'),
+        url('JoystixMonospace-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#card {
+    width: 100%;
+    max-height: 30em;
+    height: 30%;
+    font-size: 1.6em;
+    text-align: center;
+    background-color: #2e2b36AA;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+}
+
+#card_title {
+    width: 100%;
+    user-select: none;
+    color: #F5EEFF;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    /*margin-bottom: var(--gap);*/
+}
+
+#card_content {
+    width: 100%;
+    margin-top: var(--gap);
+    align-items: center;
+}
+
+#form {
+    width: 100%;
+    margin-bottom: var(--gap);
+}
+
+#file_field {
+    display: none;
+}
+
+#file_field_button {
+    width: 50%;
+}
+
+#file_field_button, #submit {
+    color: #F5EEFF;
+    font-family: "Joystix Monospace";
+    cursor: pointer;
+    background: #F5EEFF00;
+    border: 2px dashed #F5EEFF;
+	border-radius: 5px;
+	padding: 8px 32px;
+	width: 50%;
+	text-align: center;
+    transition: all 0.5s;
+}
+
+#file_field_button:hover {
+    background: #F5EEFF33;
+}
+
+#submit {
+    width: 50%;
+    margin-top: 10px;
+    border: 2px solid #F5EEFF11;
+    background: #F5EEFF33;
+}
+
+#submit:hover {
+    background: #F5EEFFAA;
+}
+
+#progressContainer {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--gap);
+}
+
+#progress {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #454555;
+    text-align: center;
+}
+
+#progressWidth {
+    border-radius: 5px;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    background-color: #F5EEFF;
+    transition: all 1s ease-in-out;
+}
+
+#info, #info > span {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 1em;
+    height: 1em;
+    font-size: 40px;
+    user-select: none;
+}
+
+#info {
+    color: #F5EEFF;
+}
+  
+#info::before {
+    font-size: 0.4em;
+    content: attr(data-hoverinfo);
+    visibility: hidden;
+    opacity: 0;
+    width: 500px;
+    background-color: #2e2b36AA;
+    color: #F5EEFF;
+    text-align: center;
+    border-radius: 5px;
+    padding: 20px 10px;
+    transition: opacity 1s ease-in-out;
+    backdrop-filter: blur(5px);
+
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 150%;
+}
+
+#info:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+html, body { height: 100%; width: 100%; margin: 0px; overflow: hidden; }
+
+body {
+    font-family: 'Joystix Monospace';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background {
+    position: absolute;
+    animation: slide 30s linear infinite;
+    background: url("spritebg.png") repeat;
+    background-size: 30%;
+    image-rendering: pixelated;
+    height: 5076px;
+    width: 5076px;
+    z-index: -1000;
+    filter: brightness(80%);
+}
+
+@keyframes slide{
+  0% {
+    transform: rotate(30deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(30deg) translate3d(-1522.8px, -1522.8px, 0);
+  }
+}

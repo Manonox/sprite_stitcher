@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Symbols+Outlined"/>
+<div id="card" data-controller="stitch">
+  <div id="card_title"><h1>Sprite Stitcher</h1></div>
+  <div id="card_content">
+    <button onclick="document.getElementById('file_field').click()" id="file_field_button">Select Files</button>
+    <%= form_with url: "/stitch", method: :post, id: "form", data: { "stitch-target": "form" } do |form| %>
+      <%= form.file_field "stitch[images]", :multiple => true, accept: "image/*", direct_upload: true, id: "file_field" %>
+      <%= form.submit "Stitch!" , data: { action: "click->stitch#submit" }, id: "submit" %>
+    <% end %>
+    <div id="progressContainer">
+      <div id="progress" data-stitch-target="progress">
+        <div id="progressWidth" data-stitch-target="progressWidth" style="width: 0%;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="info" data-hoverinfo="Upload multiple sprites and this sick-ass tool will return a spritesheet with a json.
+Filenames matter, they are used to create animations/sequences!">
+  <span class="material-symbols-outlined">info</span>
+</div>
+<div class="background"></div>

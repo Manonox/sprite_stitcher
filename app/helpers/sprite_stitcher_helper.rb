@@ -1,0 +1,3 @@
+# Helps :)
+module SpriteStitcherHelper
+end

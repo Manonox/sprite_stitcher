@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root 'sprite_stitcher#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post '/stitch' => 'sprite_stitcher#stitch'
+  get '/download' => 'sprite_stitcher#download'
 end
